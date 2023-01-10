@@ -7,7 +7,7 @@ const server = http.createServer(app);
 
 
 app.get('/', (req, res) => {
-    res.send('Lets start with socket io');
+    res.sendFile(__dirname + '/app.html');
 })
 
 app.listen(5000, function(){
