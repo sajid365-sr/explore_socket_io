@@ -1,19 +1,38 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IO</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Hello, This is Sajid Sorker socket profile</h1>
-
+    <h2 id="data"></h2>
+    <input type="text" id="name" placeholder="Enter name" />
+    <input type="number" id="phone" placeholder="Enter phone" />
+    <button onclick="handleSend()">Send</button>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
-        const socket = io();
+      const socket = io("/worldCup");
+      // socket.on('message', (data) => {
+      //     console.log(data);
+      // })
+      // const handleSend = () =>{
+      //     const name = document.getElementById('name').value;
+      //     const phone = document.getElementById('phone').value;
+      //     socket.emit("testEvent", {name, phone});
+      // }
+
+      //   socket.on("FIFA world cup", (data) => {
+      //     document.getElementById("data").innerText = data;
+      //     console.log(data);
+      //   });
+
+      socket.on("worldCupEvent", (data) => {
+        document.getElementById("data").innerText = data;
+      });
     </script>
-</body>
+  </body>
 </html>
